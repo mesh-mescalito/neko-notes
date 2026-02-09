@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#21808d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi44ON44Kz44OO44O844OIIC0gQ2F0IE5vdGVzIiwic2hvcnRfbmFtZSI6IuODjeOCs+ODjuODvOODiCIsImRlc2NyaXB0aW9uIjoiQXBwIGRlIG5vdGFzIGNvbiB0ZW3DoXRpY2EgZGUgZ2F0b3MgeSBlc3RpbG8gOC1iaXRzIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmY2ZjZjkiLCJ0aGVtZV9jb2xvciI6IiMyMTgwOGQiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0l4T1RJaUlHaGxhV2RvZEQwaU1Ua3lJajQ4Y21WamRDQjNhV1IwYUQwaU1Ua3lJaUJvWldsbmFIUTlJakU1TWlJZ1ptbHNiRDBpSTJZNE1qVTRNaUl2UGp4MFpYaDBJSGc5SWprMklpQjVQU0k0TUNJZ1ptbHNiRDBpSXpFek16UXpZaUlnWm05dWRDMW1ZVzFwYkhrOUluTmxjbWxtSWlCbWIyNTBMWE5wZW1VOUlqWXdJajQ4ZEhOd1lXNCtJaTRpUEM5MGMzQmhiajQ4TDNSbGVIUStQSFJsZUhRZ2VEMGlPVFlpSUhrOUlqRXdNQ0lnWm1sc2JEMGlJekV6TXpRellpSWdabTl1ZEMxbVlXMXBiSGs5SW5ObGNtbG1JaUJtYjI1MExYTnBlbVU5SWpZd0lqNDhkSE53WVc0K0xqd3ZkSE53WVc0K1BDOTBaWGgwUGp3dmMzWm5QZz09IiwidHlwZSI6ImltYWdlL3N2Zyt4bWwiLCJzaXplcyI6IjE5MngxOTIifSx7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJMU1USWlJR2hsYVdkb2REMGlOVEV5SWo0OGNtVmpkQ0IzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdabWxzYkQwaUkyWTRNalU0TWlJdlBqeDBaWGgwSUhnOUlqSTFOaUlnZVQwaU1qRTJJaUJtYVd4c1BTSWpNVE16TkRObklpQm1iMjUwTFdGdVkyaHZjajBpYldsa1pHeGxJaUJtYjI1MExXWmhiV2xzZVQwaWMyVnlhV1lpSUdadmJuUXRjMmw2WlQwaU1UQXdJajQ4ZEhOd1lXNCtMaTQ4TDNSemNHRnVQand2ZEdWNGRENDhkR1Y0ZENCNFBTSXlOVFlpSUhrOUlqSTJNQ0lnWm1sc2JEMGlJekV6TXpRellpSWdabTl1ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0lnWm05dWRDMW1ZVzFwYkhrOUluTmxjbWxtSWlCbWIyNTBMWE5wZW1VOUlqRXdNQ0krUEhSemNHRnVQaTQ4TDNSemNHRnVQand2ZEdWNGRENDhMM04yWno0PSIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwic2l6ZXMiOiI1MTJ4NTEyIn1dfQ==">
+    <title>🐱 ネコノート - Cat Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg-primary: #fcfcf9;
+            --color-bg-secondary: #fffff;
+            --color-text-primary: #13343b;
+            --color-text-secondary: #626c71;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-teal: #21808d;
+            --color-teal-hover: #1d7480;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg-primary: #1f2121;
+                --color-bg-secondary: #262828;
+                --color-text-primary: #f5f5f5;
+                --color-text-secondary: #a7a9a9;
+                --color-border: rgba(119, 124, 124, 0.3);
+                --color-teal: #32b8c6;
+                --color-teal-hover: #2da6b2;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', 'Courier New', monospace;
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            padding: 0;
+            margin: 0;
+            image-rendering: pixelated;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .ascii-cat {
+            font-size: 0.7rem;
+            line-height: 1.2;
+            color: var(--color-text-primary);
+            margin-bottom: 15px;
+            white-space: pre;
+            animation: catWiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes catWiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+        }
+
+        .floating-paw {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .paw-1 { top: 0; left: 10%; animation-delay: 0s; }
+        .paw-2 { top: 20px; right: 10%; animation-delay: 1s; }
+        .paw-3 { bottom: 0; left: 20%; animation-delay: 2s; }
+
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="24" font-size="24">🐾</text></svg>'), auto;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            padding: 12px 24px;
+            border: 4px solid var(--color-border);
+            background: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.1s;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .mode-btn:hover {
+            border-color: var(--color-teal);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-2px, -2px); }
+            50% { transform: translate(-2px, -6px); }
+        }
+
+        .mode-btn.active {
+            background: var(--color-teal);
+            color: white;
+            border-color: var(--color-teal);
+        }
+
+        .mode-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .mode-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #writeArea {
+            width: 100%;
+            min-height: 300px;
+            padding: 20px;
+            border: 4px solid var(--color-border);
+            border-radius: 0;
+            background: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+            font-size: 0.8rem;
+            line-height: 1.8;
+            resize: vertical;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        #writeArea:focus {
+            outline: none;
+            border-color: var(--color-teal);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: var(--color-teal);
+            color: white;
+            border: 4px solid var(--color-text-primary);
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: all 0.1s;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .btn:hover {
+            background: var(--color-teal-hover);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+            border: 2px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-bg-primary);
+        }
+
+        .note-card {
+            background: var(--color-bg-secondary);
+            border: 4px solid var(--color-border);
+            border-radius: 0;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 0.5s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .note-timestamp {
+            font-size: 0.6rem;
+            color: var(--color-text-secondary);
+        }
+
+        .note-category {
+            padding: 6px 12px;
+            border-radius: 0;
+            font-size: 0.6rem;
+            font-weight: 500;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .note-text {
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.75rem;
+        }
+
+        .category-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .category-chip {
+            padding: 8px 16px;
+            border-radius: 0;
+            border: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.1s;
+            font-size: 0.7rem;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-chip:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translate(-2px, -2px); }
+            25% { transform: translate(0px, -2px); }
+            75% { transform: translate(-4px, -2px); }
+        }
+
+        .category-chip.selected {
+            border-color: var(--color-text-primary);
+            border-width: 4px;
+        }
+
+        .new-category-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            align-items: center;
+        }
+
+        .new-category-form input {
+            flex: 1;
+            padding: 10px;
+            border: 4px solid var(--color-border);
+            border-radius: 0;
+            background: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+            font-size: 0.75rem;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .new-category-form input:focus {
+            outline: none;
+            border-color: var(--color-teal);
+        }
+
+        .color-picker {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: transform 0.1s;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: var(--color-text-primary);
+        }
+
+        .notes-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--color-text-secondary);
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+        }
+
+        .classify-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .filter-section {
+            margin-bottom: 30px;
+        }
+
+        .filter-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .edit-mode {
+            margin-top: 15px;
+        }
+
+        .edit-mode textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 4px solid var(--color-border);
+            border-radius: 0;
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            font-size: 0.75rem;
+            line-height: 1.8;
+            resize: vertical;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .edit-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .note-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="floating-paw paw-1">🐾</div>
+            <div class="floating-paw paw-2">🐾</div>
+            <div class="floating-paw paw-3">🐾</div>
+            
+            <div class="ascii-cat">  /\_/\  
+ ( o.o ) 
+  > ^ <</div>
+            
+            <h1>🐱 ネコノート 🐾</h1>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 5px;">Cat Notes • 猫のメモ</p>
+        </div>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="write">🐈 書く</button>
+            <button class="mode-btn" data-mode="classify">🏷️ 分類</button>
+            <button class="mode-btn" data-mode="explore">🎲 探索</button>
+            <button class="mode-btn" data-mode="all">📋 全て</button>
+        </div>
+
+        <div id="writeMode" class="mode-content active">
+            <textarea id="writeArea" placeholder="にゃー... 書いてください 🐾"></textarea>
+            <button class="btn" onclick="saveNote()">🐾 保存 SAVE</button>
+        </div>
+
+        <div id="classifyMode" class="mode-content">
+            <div class="stats">
+                <p style="font-size: 0.7rem;">🐈 未分類 Sin clasificar: <strong id="unclassifiedCount">0</strong></p>
+            </div>
+            <div id="classifyCard"></div>
+        </div>
+
+        <div id="exploreMode" class="mode-content">
+            <div class="filter-section">
+                <h3 style="font-size: 0.9rem;">🐱 カテゴリー選択</h3>
+                <div id="exploreCategories"></div>
+                <button class="btn" onclick="loadRandomNote()" style="margin-top: 20px;">🎲 ランダム RANDOM</button>
+            </div>
+            <div id="exploreCard"></div>
+        </div>
+
+        <div id="allMode" class="mode-content">
+            <div class="stats">
+                <p style="font-size: 0.7rem;">📋 合計 Total: <strong id="totalCount">0</strong></p>
+            </div>
+            <div class="notes-list" id="allNotesList"></div>
+        </div>
+    </div>
+
+    <script>
+        let notes = JSON.parse(localStorage.getItem('quickNotes') || '[]');
+        let categories = JSON.parse(localStorage.getItem('quickCategories') || '[]');
+        let currentClassifyIndex = 0;
+        let currentExploreNote = null;
+
+        const colors = [
+            '#ef4444', '#f97316', '#f59e0b', '#eab308', '#84cc16',
+            '#22c55e', '#10b981', '#14b8a6', '#06b6d4', '#0ea5e9',
+            '#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#d946ef',
+            '#ec4899', '#f43f5e'
+        ];
+
+        function saveToStorage() {
+            localStorage.setItem('quickNotes', JSON.stringify(notes));
+            localStorage.setItem('quickCategories', JSON.stringify(categories));
+        }
+
+        function saveNote() {
+            const text = document.getElementById('writeArea').value.trim();
+            if (!text) return;
+
+            notes.push({
+                id: Date.now(),
+                text: text,
+                timestamp: new Date().toISOString(),
+                category: null
+            });
+
+            saveToStorage();
+            document.getElementById('writeArea').value = '';
+            alert('🐾 にゃー！Nota guardada');
+        }
+
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.mode-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+            document.getElementById(`${mode}Mode`).classList.add('active');
+
+            if (mode === 'classify') {
+                loadClassifyMode();
+            } else if (mode === 'explore') {
+                loadExploreMode();
+            } else if (mode === 'all') {
+                loadAllNotes();
+            }
+        }
+
+        function loadClassifyMode() {
+            const unclassified = notes.filter(n => !n.category);
+            document.getElementById('unclassifiedCount').textContent = unclassified.length;
+
+            if (unclassified.length === 0) {
+                document.getElementById('classifyCard').innerHTML = `
+                    <div class="empty-state">
+                        <h3 style="font-size: 0.9rem;">🐱 完璧！Todo clasificado</h3>
+                        <p style="font-size: 0.7rem;">にゃー 🐾</p>
+                    </div>
+                `;
+                return;
+            }
+
+            currentClassifyIndex = Math.floor(Math.random() * unclassified.length);
+            const note = unclassified[currentClassifyIndex];
+
+            document.getElementById('classifyCard').innerHTML = `
+                <div class="note-card">
+                    <div class="note-header">
+                        <span class="note-timestamp">${formatDate(note.timestamp)}</span>
+                    </div>
+                    <div class="note-text" id="noteText${note.id}">${note.text}</div>
+                    <div class="note-actions">
+                        <button class="btn btn-small btn-secondary" onclick="editNoteInClassify(${note.id})">✏️ 編集</button>
+                        <button class="btn btn-small btn-secondary" onclick="deleteNote(${note.id})">🗑️ 削除</button>
+                    </div>
+                    <div id="editArea${note.id}"></div>
+                    <div class="category-selector" id="categorySelector"></div>
+                    <div class="new-category-form">
+                        <input type="text" id="newCategoryName" placeholder="新カテゴリー...">
+                        <button class="btn" onclick="showColorPicker()">+</button>
+                    </div>
+                    <div id="colorPicker" style="display: none;">
+                        <div class="color-picker">
+                            ${colors.map(color => `
+                                <div class="color-option" style="background: ${color}" onclick="createCategory('${color}')"></div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="classify-controls">
+                        <button class="btn btn-secondary" onclick="skipNote()">⏭️ スキップ</button>
+                    </div>
+                </div>
+            `;
+
+            renderCategories();
+        }
+
+        function editNoteInClassify(noteId) {
+            const note = notes.find(n => n.id === noteId);
+            const editArea = document.getElementById(`editArea${noteId}`);
+            const noteText = document.getElementById(`noteText${noteId}`);
+
+            editArea.innerHTML = `
+                <div class="edit-mode">
+                    <textarea id="editText${noteId}">${note.text}</textarea>
+                    <div class="edit-controls">
+                        <button class="btn btn-small" onclick="saveEdit(${noteId})">💾 保存</button>
+                        <button class="btn btn-small btn-secondary" onclick="cancelEdit(${noteId})">❌ 戻る</button>
+                    </div>
+                </div>
+            `;
+            noteText.style.display = 'none';
+        }
+
+        function saveEdit(noteId) {
+            const newText = document.getElementById(`editText${noteId}`).value.trim();
+            if (!newText) return;
+
+            const note = notes.find(n => n.id === noteId);
+            note.text = newText;
+            saveToStorage();
+            loadClassifyMode();
+        }
+
+        function cancelEdit(noteId) {
+            document.getElementById(`editArea${noteId}`).innerHTML = '';
+            document.getElementById(`noteText${noteId}`).style.display = 'block';
+        }
+
+        function deleteNote(noteId) {
+            if (!confirm('🐱 にゃー？ ¿Eliminar?')) return;
+            notes = notes.filter(n => n.id !== noteId);
+            saveToStorage();
+            loadClassifyMode();
+        }
+
+        function showColorPicker() {
+            const picker = document.getElementById('colorPicker');
+            picker.style.display = picker.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function createCategory(color) {
+            const name = document.getElementById('newCategoryName').value.trim();
+            if (!name) return;
+
+            if (categories.find(c => c.name.toLowerCase() === name.toLowerCase())) {
+                alert('Esta categoría ya existe');
+                return;
+            }
+
+            categories.push({ name, color });
+            saveToStorage();
+            document.getElementById('newCategoryName').value = '';
+            document.getElementById('colorPicker').style.display = 'none';
+            renderCategories();
+        }
+
+        function renderCategories() {
+            const selector = document.getElementById('categorySelector');
+            if (!selector) return;
+
+            selector.innerHTML = categories.map(cat => `
+                <div class="category-chip" style="background: ${cat.color}; color: white;" onclick="assignCategory('${cat.name}')">
+                    ${cat.name}
+                </div>
+            `).join('');
+        }
+
+        function assignCategory(categoryName) {
+            const unclassified = notes.filter(n => !n.category);
+            const note = unclassified[currentClassifyIndex];
+            note.category = categoryName;
+            saveToStorage();
+            loadClassifyMode();
+        }
+
+        function skipNote() {
+            loadClassifyMode();
+        }
+
+        function loadExploreMode() {
+            const exploreCategories = document.getElementById('exploreCategories');
+            exploreCategories.innerHTML = categories.map(cat => `
+                <div class="category-chip" style="background: ${cat.color}; color: white;" onclick="toggleExploreCategory('${cat.name}', this)">
+                    ${cat.name}
+                </div>
+            `).join('');
+
+            document.getElementById('exploreCard').innerHTML = '';
+        }
+
+        const selectedExploreCategories = new Set();
+
+        function toggleExploreCategory(categoryName, element) {
+            if (selectedExploreCategories.has(categoryName)) {
+                selectedExploreCategories.delete(categoryName);
+                element.classList.remove('selected');
+            } else {
+                selectedExploreCategories.add(categoryName);
+                element.classList.add('selected');
+            }
+        }
+
+        function loadRandomNote() {
+            if (selectedExploreCategories.size === 0) {
+                alert('Selecciona al menos una categoría');
+                return;
+            }
+
+            const filtered = notes.filter(n => selectedExploreCategories.has(n.category));
+
+            if (filtered.length === 0) {
+                document.getElementById('exploreCard').innerHTML = `
+                    <div class="empty-state">
+                        <p style="font-size: 0.75rem;">🐾 にゃー... No hay notas</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const randomNote = filtered[Math.floor(Math.random() * filtered.length)];
+            currentExploreNote = randomNote;
+
+            const category = categories.find(c => c.name === randomNote.category);
+
+            document.getElementById('exploreCard').innerHTML = `
+                <div class="note-card">
+                    <div class="note-header">
+                        <span class="note-timestamp">${formatDate(randomNote.timestamp)}</span>
+                        <span class="note-category" style="background: ${category.color}; color: white;">
+                            ${randomNote.category}
+                        </span>
+                    </div>
+                    <div class="note-text" id="exploreNoteText${randomNote.id}">${randomNote.text}</div>
+                    <div class="note-actions">
+                        <button class="btn btn-small btn-secondary" onclick="editNoteInExplore(${randomNote.id})">✏️ 編集</button>
+                    </div>
+                    <div id="exploreEditArea${randomNote.id}"></div>
+                </div>
+            `;
+        }
+
+        function editNoteInExplore(noteId) {
+            const note = notes.find(n => n.id === noteId);
+            const editArea = document.getElementById(`exploreEditArea${noteId}`);
+            const noteText = document.getElementById(`exploreNoteText${noteId}`);
+
+            editArea.innerHTML = `
+                <div class="edit-mode">
+                    <textarea id="exploreEditText${noteId}">${note.text}</textarea>
+                    <div class="edit-controls">
+                        <button class="btn btn-small" onclick="saveExploreEdit(${noteId})">💾 保存</button>
+                        <button class="btn btn-small btn-secondary" onclick="cancelExploreEdit(${noteId})">❌ 戻る</button>
+                    </div>
+                </div>
+            `;
+            noteText.style.display = 'none';
+        }
+
+        function saveExploreEdit(noteId) {
+            const newText = document.getElementById(`exploreEditText${noteId}`).value.trim();
+            if (!newText) return;
+
+            const note = notes.find(n => n.id === noteId);
+            note.text = newText;
+            saveToStorage();
+            loadRandomNote();
+        }
+
+        function cancelExploreEdit(noteId) {
+            document.getElementById(`exploreEditArea${noteId}`).innerHTML = '';
+            document.getElementById(`exploreNoteText${noteId}`).style.display = 'block';
+        }
+
+        function loadAllNotes() {
+            document.getElementById('totalCount').textContent = notes.length;
+
+            if (notes.length === 0) {
+                document.getElementById('allNotesList').innerHTML = `
+                    <div class="empty-state">
+                        <h3 style="font-size: 0.9rem;">🐱 ノートなし</h3>
+                        <p style="font-size: 0.7rem;">にゃー... 書いて！🐾</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const sortedNotes = [...notes].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            document.getElementById('allNotesList').innerHTML = sortedNotes.map(note => {
+                const category = note.category ? categories.find(c => c.name === note.category) : null;
+
+                return `
+                    <div class="note-card">
+                        <div class="note-header">
+                            <span class="note-timestamp">${formatDate(note.timestamp)}</span>
+                            ${category ? `<span class="note-category" style="background: ${category.color}; color: white;">${note.category}</span>` : '<span class="note-category" style="background: var(--color-text-secondary); color: white;">未分類</span>'}
+                        </div>
+                        <div class="note-text">${note.text}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function formatDate(isoString) {
+            const date = new Date(isoString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Ahora';
+            if (diffMins < 60) return `Hace ${diffMins} min`;
+            if (diffHours < 24) return `Hace ${diffHours}h`;
+            if (diffDays < 7) return `Hace ${diffDays}d`;
+
+            return date.toLocaleDateString('es-ES', {
+                day: 'numeric',
+                month: 'short',
+                year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
+            });
+        }
+
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchMode(btn.dataset.mode);
+            });
+        });
+
+        document.getElementById('writeArea').focus();
+    </script>
+</body>
+</html>
+
